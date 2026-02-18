@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plagiarism Finder App</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #c7d2fe, #e0f2fe);
+            font-family: Cambria, serif;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .card {
+            background: white;
+            width: 520px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #1e3a8a;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .alert {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #ecfdf5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+    </style>
+
+    <script>
+        function showAlert() {
+            alert("🔍 Checking plagiarism... Please wait!");
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>📄 Plagiarism Finder App</h1>
+
+    <form method="POST" enctype="multipart/form-data" onsubmit="showAlert()">
+
+        <label>📁 Select First File</label><br>
+        <input type="file" name="f1" required><br><br>
+
+        <label>📁 Select Second File</label><br>
+        <input type="file" name="f2" required><br><br>
+
+        <button type="submit">Check Similarity</button>
+    </form>
+
+    {% if msg %}
+        <div class="alert">{{ msg }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
